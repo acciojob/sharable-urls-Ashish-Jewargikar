@@ -1,12 +1,16 @@
-// your code here
-const form = document.getElementById('myForm');
-    const button = document.getElementById('button');
-    const url = document.getElementById('url');
+ const form = document.querySelector('form');
+    const button = document.querySelector('#button');
+    const url = document.querySelector('#url');
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const nameValue = document.getElementById('name').value;
-      const yearValue = document.getElementById('year').value;
-      const queryString = `?name=${nameValue}&year=${yearValue}`;
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // prevent form from submitting
+
+      const name = document.querySelector('#name').value;
+      const year = document.querySelector('#year').value;
+
+      // build the query string
+      const queryString = `?name=${name}&year=${year}`;
+
+      // update the URL text
       url.textContent = `https://localhost:8080/${queryString}`;
     });
